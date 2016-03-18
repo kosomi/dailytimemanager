@@ -1,17 +1,8 @@
 window.env = {
   "environment": "development",
-  "firebase": "https://dailytimemanager.firebaseio.com/"
+  "firebase": "https://aaaaaaa.firebaseio.com/"
 };
 
 
 
-
-
-/*
-window.env = {
-  "environment": "development",
-  "firebase": "https://welcometosir.firebaseio.com/chris"
-};
-
-
-*/
+ 
