@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app='rtfm'>
+<head>
+	<title>Daily Time Manager</title>
+	<style type="text/css" ref='style.css'></style>
+	<link rel="stylesheet" type="text/css" href="asset/bootstrap/dist/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app='rtfm' ng-controller='bgCtrl' ng-style="heroImage">
+
+
+<!-- <div class='container' ng-view></div> -->
+
+<div class='container'>
+	<br>
+	<ng-view></ng-view>	
+</div>
+ 
+
+
+<!-- bower:js --> 
+<script src="asset/angular/angular.js"></script>  
+<script src="asset/angular-route/angular-route.js"></script> 
+<script src="asset/firebase/firebase.js"></script>  
+<script src="asset/angularfire/dist/angularfire.min.js"></script> 
+
+<script src='js/app.js'></script>
+<script src='js/app/env.js'></script>
+<script src='js/EnvironmentService.js'></script>
+<script src='js/login/loginController.js'></script>
+<script src='js/threads/bgCtrl.js'></script>
+<script src='js/threads/threadsCtrl.js'></script>
+<script src='js/threads/threadService.js'></script>
+<script src='js/thread/threadCtrl.js'></script>
+</body>
+</html>

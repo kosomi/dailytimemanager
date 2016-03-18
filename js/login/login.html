@@ -1,0 +1,29 @@
+<br>
+<center>
+<div class='container' class='btn btn-info'>
+
+	<h2>Daily Time Manager </h2><br>
+	<br><br>
+	<b> ID:   {{username}}</b>
+
+	<br><br>
+	<form class='container' ng-show='check()' ng-submit='logMeIn(username)'>
+		<input type='text' ng-model='username'/ size='15px'>
+		<button class='btn btn-success'   >Log In</button>
+	</form> 
+<br><br> 
+
+<div ng-show='!check()' class='alert alert-info'>
+	Congraturations! You are already logged in. Please click the button below.
+</div>
+
+<br>
+
+<div ng-show='check()' class='alert alert-success'>
+	 Glad to see you! You are not logged in. Please enter user name and click the 'Log in' button. If you remember your name, you can log in service from anywhere anytime.
+</div>
+
+ <div class="btn btn-info btn-block" onclick="window.location.href='/#/threads'">Main</div> 
+
+</div>
+</center>

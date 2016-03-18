@@ -1,0 +1,59 @@
+<div class='container'>
+    <div ng-show='!check()' class='btn btn-primary'>
+        Congraturations! You are successfully logged in. 
+    </div>
+    <div ng-show='check()' class='btn btn-success'>
+         Glad to see you! You are not logged in. Please enter user name and click the 'Log in' button. If you remember your name, you can log in service from anywhere anytime.
+    </div>
+    <div class="btn btn-default " >Your user name : {{username}}</div>
+    <div class="btn btn-success " onclick="window.location.href='/#/login'">Log in</div>
+    <div class="btn btn-success " onclick="window.location.href='/#/threads'">Main</div>
+    <div class="btn btn-success " onclick="window.location.href='/#/feedback'">Feedback</div>
+    <br> <br> 
+<h1>FeedBack</h1>
+    <div style="background-color:white" >
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><center> 
+                        <h2>Daily Time Manager </h2><br>
+                        <h4>Daily Tima Manager helps you in managing your time.<br>
+                        You can record your time day by day. <br>
+                        It is easy to add and edit.<br>
+                        After one month you started, you can see the result and would be realized that<br> you have spent your time less or more than you expect.<br>
+                        The chart will give you advice to manage your time in effective way.<br>
+                        <br>
+                        This app manage your data seperately from others.<br>
+                        Nobody is able to touch your data.<br>
+                        <br>
+                        Have a good time~<br>
+                        <br>
+                        </h4>
+                    </center></th>
+                </tr>
+            </thead>
+            <tbody align='center'>
+                <tr>
+                  <td>
+
+                  <div>
+  <h3>Please leave a comment here.</h3><br>
+  <form name="newCommentForm">
+    <input type="text" ng-model="feedbackUser" placeholder="Your Name" required/>
+    <input type="text" ng-model="feedbackText" placeholder="Write a comment..." required/>
+    <button ng-click="createComment(feedbackUser, feedbackText)" class='btn btn-info'>Add Comment</button>
+  </form>
+  <br> 
+  <div ng-repeat="comment in comments | orderBy:'-date'"  class='alert alert-info'> 
+    {{ comment.text }}: {{ comment.username }}  
+    <div class='pull-right'>{{comment.date}}</div>
+  </div>
+ </div>
+                  </td> 
+                </tr> 
+            </tbody>
+        </table> 
+    </div>
+
+ 
+</div> 

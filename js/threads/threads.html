@@ -1,0 +1,100 @@
+<div class='container'>
+    <div class='pull-right'>
+            <div ng-show='!check()' class='btn btn-primary'>
+                Congraturations! You are successfully logged in. 
+            </div>
+            <div ng-show='check()' class='btn btn-success'>
+                 Glad to see you! You are not logged in. Please enter user name and click the 'Log in' button. If you remember your name, you can log in service from anywhere anytime.
+            </div>
+            <div class="btn btn-default " >Your user name : {{username}}</div>
+            <div class="btn btn-success " onclick="window.location.href='/#/login'">Log in</div>
+            <div class="btn btn-success " onclick="window.location.href='/#/threads'">Main</div>
+            <div class="btn btn-success " onclick="window.location.href='/#/feedback'">Feedback</div>
+    </div>
+    <div class=nav nav-brand><h4>Daily Time Manager </h4></div>
+ 
+    <br> <br> 
+
+    <form name="cups" class="form-horizontal panel-body">
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">Date</label>
+            <div class='col-md-2'>
+            <input type='date'  class="form-control" ng-model='date' class='form-default'></input>
+        </div>
+        </div>
+
+        <div class="form-group">
+        <label class="col-md-2 control-label">Morning</label>
+            <div class='col-md-1'>
+            <input type="number" min="0" max="12" placeholder=0 class="form-control" ng-model="morningHour"  >
+            </div>
+            <div class='col-md-1'>
+            <input type="number" min="0" max="60" placeholder=0  class="form-control" ng-model="morningMin"  > 
+            </div>  
+        </div>
+
+        <div class="form-group">
+        <label class="col-md-2 control-label">Noon</label>
+            <div class='col-md-1'>
+            <input type="number" min="0" max="12" placeholder=0  class="form-control" ng-model="noonHour"  > 
+            </div>
+            <div class='col-md-1'>
+            <input type="number" min="0" max="60" placeholder=0  class="form-control" ng-model="noonMin"  > 
+            </div>  
+        </div>
+
+        <div class="form-group">
+        <label class="col-md-2 control-label">Night</label>
+            <div class='col-md-1'>
+            <input type="number" min="0" max="12" placeholder=0  class="form-control" ng-model="nightHour"  > 
+            </div>
+            <div class='col-md-1'>
+            <input type="number" min="0" max="60" placeholder=0  class="form-control" ng-model="nightMin"  > 
+            </div>  
+        </div>
+ 
+        <div class="form-group">
+        <label class="col-md-2 control-label">Comment</label>
+        <div class='col-md-6'>
+            <input type="text" class="form-control" ng-model="comment"  >   
+            </div> 
+        </div>
+
+        <div class="form-group">
+        <div class="col-md-offset-2 col-md-6">
+            <button   ng-click="recordCups(morningHour, noonHour, nightHour, morningMin, noonMin, nightMin, date, comment)" class='btn btn-warning btn-block'>Submit</button>
+            </div>
+        </div>
+    </form> 
+
+    <div style="background-color:white" >
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><center>Date</th>
+                    <th> </th>
+                    <th><center>Morning</th>
+                    <th><center>Noon</th>
+                    <th><center>Night</th>
+                    <th><center>Total</th>
+                    <th><center>Comment</th>
+                </tr>
+            </thead>
+            <tbody align='center'>
+                <tr ng-repeat="thread in threads | orderBy:'-date' | limitTo:32 " class='list-group'>
+                  <td><a ng-href="#/threads/{{thread.$id}}">{{thread.date | date:'shortDate'}}</a></td> 
+                  <td><a ng-href="#/threads/{{thread.$id}}">{{thread.date | date:'EEEE'}}</a></td> 
+                  <td> {{ thread.morningHour  }}:{{ thread.morningMin  }} </td> 
+                  <td> {{ thread.noonHour }}:{{ thread.noonMin  }} </td> 
+                  <td> {{ thread.nightHour  }}:{{ thread.nightMin  }} </td> 
+                  <td><a ng-click="delete(thread)">{{thread.totalHour}}:{{ thread.totalMin  }}</a></td> 
+                  <td>{{thread.comment}}</a></td> 
+                </tr> 
+            </tbody>
+        </table> 
+    </div>
+
+ 
+</div> 
+<center>@ latest update March 16 2016</center>

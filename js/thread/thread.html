@@ -1,0 +1,18 @@
+<div>
+  <h1>{{ thread.title }} (by {{ thread.username }})</h1>
+
+  <form name="newCommentForm">
+    <input type="text" ng-model="newCommentText" placeholder="Write a comment..." required/>
+    <button ng-disabled="newCommentForm.$invalid" ng-click="createComment(username, newCommentText)" class='btn btn-info'>Add Comment</button>
+  </form>
+
+  <br> 
+  <div ng-repeat="comment in comments" class='alert alert-info'>
+  	{{ comment.username }}: {{ comment.text }}
+  	<div class='pull-right' ng-click="delete(comment)">[Delete]</div>
+  </div>
+ </div>
+ 
+
+ <div class="btn btn-info btn-block" onclick="window.location.href='/#/threads'">Main</div>
+ <div class="btn btn-success btn-block" onclick="window.location.href='/#/login'">Log in</div>
